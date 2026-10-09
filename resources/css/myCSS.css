@@ -1,0 +1,508 @@
+/* ===========================
+   myCSS.css - Modul 4 Praktikum
+   BPS Provinsi Jawa Timur
+   =========================== */
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* ===========================
+   GLOBAL RESET & BASE
+   =========================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===========================
+   HEADER & NAVIGATION
+   =========================== */
+header {
+    background-color: #034f84;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 65px;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+header img {
+    width: 45px;
+    height: 45px;
+    float: left;
+    margin-top: 10px;
+    margin-left: 2%;
+    border-radius: 4px;
+}
+
+.judulweb {
+    float: left;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.1em;
+    text-align: left;
+    padding: 20px 0 0 12px;
+}
+
+nav {
+    float: right;
+    margin-right: 2%;
+    height: 65px;
+}
+
+nav a {
+    float: left;
+    display: block;
+    width: auto;
+    height: 65px;
+    color: #cde4f5;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 0.85em;
+    text-align: center;
+    padding: 22px 16px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover {
+    background-color: #0267ac;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+nav a.active {
+    background-color: #e8f4fc;
+    color: #034f84;
+    font-weight: 600;
+}
+
+/* ===========================
+   MAIN CONTENT AREA
+   =========================== */
+main {
+    padding-top: 80px;
+    width: 80%;
+    margin: 0 auto;
+    min-height: calc(100vh - 120px);
+}
+
+h2 {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #034f84;
+    margin: 20px 0 12px 0;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #034f84;
+}
+
+/* ===========================
+   TABLE STYLING (page03A)
+   =========================== */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid #d0d7de;
+}
+
+th {
+    background-color: #034f84;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 600;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+td {
+    text-align: center;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+/* Alternating row color - even rows (counting from header = row 1) */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+/* Header row stays blue */
+thead tr {
+    background-color: #034f84;
+}
+
+img {
+    width: 70px;
+}
+
+/* Abstrak cell - left aligned for readability */
+td.abstrak {
+    text-align: left;
+    font-size: 0.85em;
+    line-height: 1.5;
+}
+
+/* ===========================
+   FORM STYLING (page03C)
+   =========================== */
+.form-wrapper {
+    width: 60%;
+    margin: 20px auto;
+}
+
+form {
+    width: 100%;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+form table {
+    width: 100%;
+    border: none;
+}
+
+form table, form td {
+    border: none;
+}
+
+form td {
+    text-align: left;
+    padding: 8px 4px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="file"] {
+    width: 80%;
+    padding: 12px;
+    border: 1px solid #c8c8c8;
+    border-radius: 4px;
+    background-color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+}
+
+input[type="submit"] {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #034f84;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #023a63;
+    cursor: pointer;
+}
+
+/* Fieldset overrides for form page */
+fieldset {
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    background-color: #ffffff;
+    width: 60% !important;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+fieldset h3 {
+    text-align: center;
+    color: #034f84;
+    font-size: 1em;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+/* ===========================
+   GALERI KEGIATAN (page06E)
+   =========================== */
+.galeri-container {
+    width: 540px;
+    margin: 20px auto 40px auto;
+    overflow: hidden;
+}
+
+.galeri-preview {
+    width: 100%;
+    overflow: hidden;
+}
+
+.galeri-preview img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.galeri-thumbnails {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 4px;
+}
+
+.galeri-thumbnails img {
+    float: left;
+    width: 33.33%;
+    height: 120px;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+    box-sizing: border-box;
+}
+
+.galeri-thumbnails img:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.galeri-thumbnails::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* ===========================
+   PESAN ERROR (page06C)
+   =========================== */
+#pesanError {
+    display: none;
+    background-color: #fff0f0;
+    border: 1px solid #e74c3c;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin-bottom: 14px;
+    color: #c0392b;
+    font-size: 0.88em;
+    line-height: 1.8;
+}
+
+/* ===========================
+   FOOTER (hr + address)
+   =========================== */
+hr {
+    border: none;
+    border-top: 1px solid #d0d7de;
+    margin-top: 30px;
+}
+
+footer {
+    background-color: #034f84;
+    color: #cde4f5;
+    text-align: center;
+    padding: 16px;
+    font-size: 0.82em;
+    margin-top: auto;
+}
+
+footer address {
+    background-color: transparent;
+    color: #cde4f5;
+    padding: 0;
+    margin: 0;
+    font-style: normal;
+}
+
+/* Address inside fieldset (page03C) */
+fieldset address {
+    background-color: transparent;
+    color: #666;
+    font-size: 0.8em;
+    padding: 8px 0 4px 0;
+    margin-top: 8px;
+}
+
+/* ===========================
+   PENCARIAN PUBLIKASI
+   =========================== */
+
+.search-container {
+    width: 80%;
+    margin: 20px auto 0 auto;
+    padding-bottom: 35px;
+}
+
+.search-container label {
+    display: block;
+    color: #034f84;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.search-container input[type="text"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #c8c8c8;
+    border-radius: 5px;
+    background-color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+    outline: none;
+}
+
+.search-container input[type="text"]:focus {
+    border-color: #034f84;
+    box-shadow: 0 0 0 2px rgba(3, 79, 132, 0.1);
+}
+
+#txtHint {
+    background-color: #ffffff;
+    border: 1px solid #d0d7de;
+    border-radius: 4px;
+    margin-top: 5px;
+    padding: 10px 15px;
+    color: #555;
+    font-size: 0.85em;
+    line-height: 1.8;
+}
+
+.publikasi {
+    width: 100%;
+}
+
+/* ===========================
+   FORM LOGIN
+   =========================== */
+
+.login-page {
+    flex: 1;
+    width: 100%;
+    padding-top: 95px;
+    padding-bottom: 35px;
+}
+
+/* Kotak login */
+.login-card {
+    width: 500px;
+    max-width: 90%;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #d0d7de;
+    padding: 28px 35px;
+}
+
+/* Judul Login */
+.login-card h2 {
+    color: #034f84;
+    font-size: 1.3em;
+    font-weight: 600;
+    text-align: center;
+
+    margin: 0 0 8px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #034f84;
+}
+
+/* Deskripsi */
+.login-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 0.85em;
+    margin-bottom: 25px;
+}
+
+/* Form */
+.login-card form {
+    width: 100%;
+    padding: 0;
+    background-color: transparent;
+}
+
+/* Kelompok input */
+.form-group {
+    margin-bottom: 18px;
+}
+
+/* Label */
+.form-group label {
+    display: block;
+    color: #034f84;
+    font-size: 0.88em;
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+
+/* Username & Password */
+.login-card input[type="text"],
+.login-card input[type="password"] {
+    display: block;
+    width: 100%;
+    height: 42px;
+
+    padding: 10px 12px;
+
+    border: 1px solid #c8c8c8;
+    border-radius: 4px;
+
+    background-color: #ffffff;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.88em;
+
+    outline: none;
+}
+
+/* Ketika input dipilih */
+.login-card input[type="text"]:focus,
+.login-card input[type="password"]:focus {
+    border-color: #034f84;
+    box-shadow: 0 0 0 2px rgba(3, 79, 132, 0.1);
+}
+
+/* Tombol login */
+.login-button {
+    margin-top: 10px;
+}
+
+.login-card input[type="submit"] {
+    width: 100%;
+    height: 42px;
+
+    padding: 10px;
+
+    border: none;
+    border-radius: 4px;
+
+    background-color: #034f84;
+    color: #ffffff;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.login-card input[type="submit"]:hover {
+    background-color: #023a63;
+}

@@ -1,0 +1,107 @@
+// 1) Bootstrap (sesuai Modul 12.4.4)
+@import 'bootstrap/scss/bootstrap';
+
+// 2) myCSS.css dari webbps PHP, dimuat SETELAH Bootstrap supaya tampilannya sama persis
+@import '../css/myCSS';
+
+// 3) Tambahan khusus versi Laravel (tidak mengubah myCSS.css)
+.pesan-sukses {
+    background-color: #e6f4ea;
+    border: 1px solid #34a853;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin: 20px 0 0 0;
+    color: #1e7e34;
+    font-size: 0.88em;
+}
+
+.pesan-error {
+    background-color: #fff0f0;
+    border: 1px solid #e74c3c;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin-bottom: 14px;
+    color: #c0392b;
+    font-size: 0.88em;
+    line-height: 1.8;
+}
+
+// form hapus di dalam tabel: jangan ikut gaya "form" umum (abu-abu, lebar penuh)
+form.form-hapus {
+    display: inline-block;
+    width: auto;
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+    vertical-align: middle;
+}
+
+.btn-ikon {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+form textarea {
+    width: 80%;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+    border: 1px solid #c8c8c8;
+    border-radius: 4px;
+}
+
+.btn-kembali {
+    display: inline-block;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #6c757d;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.9em;
+    text-decoration: none;
+    margin-left: 6px;
+}
+
+.btn-kembali:hover {
+    background-color: #565e64;
+    color: #ffffff;
+}
+
+// halaman login: kotak pesan error mengikuti lebar kartu
+.login-card .pesan-error {
+    margin-bottom: 18px;
+}
+
+// "Ingat saya" & tautan Login/Register
+.form-ingat {
+    margin-bottom: 6px;
+    font-size: 0.85em;
+    color: #333;
+}
+
+.form-ingat label {
+    cursor: pointer;
+}
+
+.login-card .form-ingat input[type="checkbox"] {
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+.login-link {
+    margin: 18px 0 0 0;
+}
+
+.login-link a {
+    color: #034f84;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
