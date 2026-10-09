@@ -270,8 +270,8 @@ main {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     position: relative;
     cursor: pointer;
@@ -297,10 +297,10 @@ button.btn-3d-circle {
 }
 
 .btn-3d-circle .icon-3d {
-    width: 26px !important;
-    height: 26px !important;
-    max-width: 26px !important;
-    max-height: 26px !important;
+    width: 22px !important;
+    height: 22px !important;
+    max-width: 22px !important;
+    max-height: 22px !important;
     object-fit: contain;
     display: block;
     margin: 0 auto;
