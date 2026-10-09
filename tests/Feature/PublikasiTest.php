@@ -34,13 +34,52 @@ class PublikasiTest extends TestCase
         return $user;
     }
 
-    public function test_tamu_diarahkan_ke_login(): void
+    public function test_tamu_bisa_melihat_publikasi_dan_galeri_tapi_cud_harus_login(): void
     {
-        $this->get('/publikasi')->assertRedirect('/login');
-        $this->get('/publikasi/create')->assertRedirect('/login');
-        $this->post('/publikasi', [])->assertRedirect('/login');
+        // Pertama kali mengunjungi / diarahkan ke /publikasi
         $this->get('/')->assertRedirect('/publikasi');
-        $this->get('/login')->assertOk()->assertSee('Silakan masuk');
+
+        // Tamu bisa melihat daftar publikasi dan galeri tanpa login (Read)
+        $this->get('/publikasi')->assertOk()->assertSee('Daftar Publikasi');
+        $this->get('/galeri')->assertOk()->assertSee('Galeri Kegiatan');
+
+        // Tambah publikasi dan CUD lainnya harus login dan ada notifikasi "Anda perlu login"
+        $this->get('/publikasi/create')
+            ->assertRedirect('/login')
+            ->assertSessionHas('warning', 'Anda perlu login');
+
+        // Mengikuti redirect ke /login menampilkan teks notifikasi "Anda perlu login"
+        $this->followingRedirects()
+            ->get('/publikasi/create')
+            ->assertOk()
+            ->assertSee('Anda perlu login');
+
+        $this->post('/publikasi', [])
+            ->assertRedirect('/login')
+            ->assertSessionHas('warning', 'Anda perlu login');
+
+        $p = Publikasi::create(['judul' => 'Uji Tamu', 'tanggal_rilis' => '2025-01-01', 'sampul' => 'Cover1.webp', 'abstraksi' => 'test']);
+
+        $this->get(route('publikasi.edit', $p))
+            ->assertRedirect('/login')
+            ->assertSessionHas('warning', 'Anda perlu login');
+
+        $this->followingRedirects()
+            ->get(route('publikasi.edit', $p))
+            ->assertOk()
+            ->assertSee('Anda perlu login');
+
+        $this->put(route('publikasi.update', $p), ['judul' => 'Ubah'])
+            ->assertRedirect('/login')
+            ->assertSessionHas('warning', 'Anda perlu login');
+
+        $this->delete(route('publikasi.destroy', $p))
+            ->assertRedirect('/login')
+            ->assertSessionHas('warning', 'Anda perlu login');
+
+        $this->get('/login')
+            ->assertOk()
+            ->assertSee('Silakan masuk');
     }
 
     public function test_login_benar_dan_salah(): void
