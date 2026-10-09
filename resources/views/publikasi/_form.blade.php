@@ -41,10 +41,12 @@
         <tr>
             <td>{{ $edit ? 'Sampul Baru:' : 'Sampul:' }}</td>
             <td>
-                <input type="file" name="sampul" accept=".jpg,.jpeg,.png,.webp" {{ $edit ? '' : 'required' }}>
+                <input type="file" name="sampul" id="sampul" accept=".jpg,.jpeg,.png,.webp" {{ $edit ? '' : 'required' }}>
+                <div id="sampulNotification" class="pesan-error" style="display:none; margin-top:10px;"></div>
                 @if ($edit)
                     <br><small>Kosongkan jika tidak ingin mengganti sampul.</small>
                 @endif
+                <br><small>Maksimal ukuran file 5 MB.</small>
             </td>
         </tr>
         <tr>
@@ -62,3 +64,37 @@
         </tr>
     </table>
 </form>
+
+@push('scripts')
+    <script>
+        (function () {
+            const input = document.getElementById('sampul');
+            const notification = document.getElementById('sampulNotification');
+            const maxSize = 5 * 1024 * 1024;
+
+            if (!input || !notification) {
+                return;
+            }
+
+            input.addEventListener('change', function () {
+                const file = this.files && this.files[0];
+
+                if (!file) {
+                    notification.style.display = 'none';
+                    notification.textContent = '';
+                    return;
+                }
+
+                if (file.size > maxSize) {
+                    this.value = '';
+                    notification.textContent = 'Ukuran sampul maksimal 5 MB.';
+                    notification.style.display = 'flex';
+                    return;
+                }
+
+                notification.style.display = 'none';
+                notification.textContent = '';
+            });
+        })();
+    </script>
+@endpush

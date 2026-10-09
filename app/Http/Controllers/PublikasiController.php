@@ -89,7 +89,7 @@ class PublikasiController extends Controller
         return [
             'judul' => ['required', 'string', 'max:255'],
             'tanggal_rilis' => ['required', 'date'],
-            'sampul' => [$sampulWajib ? 'required' : 'nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
+            'sampul' => [$sampulWajib ? 'required' : 'nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
             'abstraksi' => ['required', 'string'],
         ];
     }
@@ -104,7 +104,7 @@ class PublikasiController extends Controller
             'sampul.required' => 'Sampul wajib dipilih.',
             'sampul.image' => 'Sampul harus berupa gambar.',
             'sampul.mimes' => 'Sampul harus berformat JPG, PNG, atau WEBP.',
-            'sampul.max' => 'Ukuran sampul maksimal 2 MB.',
+            'sampul.max' => 'Ukuran sampul maksimal 5 MB.',
             'abstraksi.required' => 'Abstraksi tidak boleh kosong.',
         ];
     }
